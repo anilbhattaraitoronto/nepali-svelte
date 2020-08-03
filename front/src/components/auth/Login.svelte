@@ -10,7 +10,10 @@
   let data = { email, password };
   async function login() {
     const response = axios
-      .post("https://nepali.playingpets.com/api/users/login", { email, password })
+      .post("https://nepali.playingpets.com/api/users/login", {
+        email,
+        password
+      })
       .then(response => {
         if (response.data.accessToken) {
           if (!$user) {
@@ -35,7 +38,9 @@
   //get all blogs to display
 
   onMount(async () => {
-    const { data } = await axios.get("https://nepali.playingpets.com/api/posts");
+    const { data } = await axios.get(
+      "https://nepali.playingpets.com/api/posts"
+    );
     if (data) {
       $blogs = data;
       console.log("blogs are", $blogs);
@@ -49,7 +54,7 @@
   async function deletePost(id) {
     if ($user && parseInt(JSON.parse($user).status) === 1) {
       const response = await axios.post(
-        `htts://nepali.playingpets.com/api/posts/delete/${id}`,
+        `https://nepali.playingpets.com/api/posts/delete/${id}`,
         {
           headers: {
             "x-access-token": JSON.parse($user).accessToken
