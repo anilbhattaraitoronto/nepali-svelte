@@ -6,6 +6,6 @@ const { createPost, getAllBlogs, deleteBlog } = require(
 
 router.post("/create", createPost);
 router.get("/", getAllBlogs);
-router.post("/delete/:id", deleteBlog);
+router.delete("/delete/:id", deleteBlog);
 
 module.exports = router;
