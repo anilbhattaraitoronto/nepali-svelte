@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("front/public"));
+  app.use(express.static(path.join(__dirname, "front/public")));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "front", "public", "index.html"));
   });
