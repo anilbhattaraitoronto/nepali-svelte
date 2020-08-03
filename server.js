@@ -7,7 +7,7 @@ const path = require("path");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:5000",
+  origin: "https://nepali.playingpets.com",
 };
 
 app.use(cors(corsOptions));
