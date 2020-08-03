@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const DB = require("./database/createtables.js");
+const path = require("path");
 
 const app = express();
 
@@ -26,21 +27,14 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Learn Nepali" });
 });
 
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, Content-Type, Accept",
-  );
-  next();
-  app.use("/api/users", userRoutes);
-  app.use("/api/posts", postRoutes);
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static("front/public"));
-    app.get("*", (req, res) => {
-      res.sendFile(path.resolve(__dirname, "front", "public", "index.html"));
-    });
-  }
-});
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("front/public"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "front", "public", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
