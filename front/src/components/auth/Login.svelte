@@ -128,7 +128,9 @@
           <div class="blog">
             <h4 class="blog-title">{blog.title}</h4>
             <p>{blog.author}</p>
-            <p>{blog.content}</p>
+            <p>
+              {@html blog.content}
+            </p>
             {#if $user && parseInt(JSON.parse($user).status) === 1}
               <p>
                 <button on:click={() => deletePost(blog.id)}>Delete?</button>
