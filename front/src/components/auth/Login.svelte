@@ -53,7 +53,7 @@
 
   async function deletePost(id) {
     if ($user && parseInt(JSON.parse($user).status) === 1) {
-      const response = await axios.post(
+      const response = await axios.delete(
         `https://nepali.playingpets.com/api/posts/delete/${id}`,
         {
           headers: {
