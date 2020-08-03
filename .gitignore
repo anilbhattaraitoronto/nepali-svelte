@@ -1,0 +1,8 @@
+/front/node_modules/
+/front/public/build/
+/backend/node_modules/
+/node_modules/
+secrets.js
+nepalidb.sqlite
+.DS_Store
+server.txt
