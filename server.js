@@ -10,7 +10,7 @@ var corsOptions = {
   origin: "https://nepali.playingpets.com",
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 //parse request of application/json content type
 app.use(bodyParser.json());
