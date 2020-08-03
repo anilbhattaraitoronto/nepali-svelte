@@ -17,7 +17,7 @@ exports.sendAccountActivationEmail = (
     { expiresIn: "3m" },
   );
 
-  const url = `http://localhost:4000/api/users/activate/${token}`;
+  const url = `https://nepali.playingpets.com/api/users/activate/${token}`;
   var mailOptions = {
     from: "no-reply@email.com",
     to: userEmail,
@@ -45,7 +45,7 @@ exports.sendPasswordResetEmail = (senderDetail, userEmail) => {
     { expiresIn: "20m" },
   );
 
-  const url = `http://localhost:3000/api/users/resetpassword/${token}`;
+  const url = `https://nepali.playingpets.com/api/users/resetpassword/${token}`;
   const mailOptions = {
     from: "no-reply@email.com",
     to: userEmail,
